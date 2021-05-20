@@ -1,0 +1,53 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/nonghu_index/nonghu_index",
+          "pathName": "pages/nonghu_index/nonghu_index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/personal/personal",
+          "pathName": "pages/personal/personal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/retailer_index/retailer_index",
+          "pathName": "pages/retailer_index/retailer_index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/medication_record/medication_record",
+          "pathName": "pages/medication_record/medication_record",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/regesiter/regesiter",
+          "pathName": "pages/regesiter/regesiter",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

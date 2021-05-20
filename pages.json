@@ -1,0 +1,277 @@
+{
+	"easycom": {
+			"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+		    "path" : "pages/login/login",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "石原金牛",
+		        "enablePullDownRefresh": false
+		    }
+		},{
+			"path": "pages/enter_products/enter_products",
+			"style": {
+				"navigationBarTitleText": "扫码进货"
+			}
+		}
+        ,{
+            "path" : "pages/out_products/out_products",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "扫码退货",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user_agreement/user_agreement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "用户协议",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user_policy/user_policy",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "隐私政策",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/regesiter/regesiter",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "注册",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/nonghu_index/nonghu_index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "石原金牛",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/personal/personal",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "编辑资料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/medication_record/medication_record",
+            "style" :                                                                                    
+            {
+               "navigationBarTitleText": "用药记录",
+                "enablePullDownRefresh": false
+            }   
+        }
+        ,{
+            "path" : "pages/upload_share/upload_share",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "上传分享截图",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/add_medication_record/add_medication_record",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新增用药记录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/medication_record_detail/medication_record_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "用药记录详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/continue_record/continue_record",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新增用药跟踪记录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/retailer_index/retailer_index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "石原金牛",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/enter_out_products/enter_out_products",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "手动输入",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/need_supports/need_supports",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "需要的支持",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/apply_need/apply_need",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "申请支持",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/enter_products_statistics/enter_products_statistics",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "进货统计",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/salesman_index/salesman_index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "石原金牛",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/nonghu_manage/nonghu_manage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "农技示范户管理",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/retailer_manage/retailer_manage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "零售商管理",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/scan_trace/scan_trace",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "扫码追溯",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/input_trace/input_trace",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "手动输入追溯",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/technology_share/technology_share",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "技术分享",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/sale_support/sale_support",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "销售支持",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/nong_technology_record/nong_technology_record",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "农技示范记录",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/enter_products_bysale/enter_products_bysale",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "进货情况",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/nonghu_detail/nonghu_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "农技示范户详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/product_trace_detail/product_trace_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "追溯详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/retailer_detail/retailer_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "零售商详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#EFEFF4"
+	}
+}

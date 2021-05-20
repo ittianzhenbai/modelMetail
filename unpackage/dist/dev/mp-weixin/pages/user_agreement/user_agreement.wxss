@@ -1,0 +1,18 @@
+.agreement-page.data-v-e7e45bf4 {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 35rpx 25rpx 0;
+}
+.agreement-page .content.data-v-e7e45bf4 {
+  font-size: 24rpx;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  color: #666;
+  line-height: 1.8;
+}
+.agreement-page .content .title.data-v-e7e45bf4 {
+  text-align: center;
+  font-size: 32rpx;
+}
+

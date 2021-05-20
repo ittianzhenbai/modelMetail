@@ -1,0 +1,93 @@
+page.data-v-2c8a80da {
+  background-color: #efeff4;
+}
+.add-record.data-v-2c8a80da {
+  overflow: auto;
+}
+.add-record .add-label.data-v-2c8a80da {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+.add-record .add-label.data-v-2c8a80da .u-label-text {
+  font-size: 30rpx;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  color: #333;
+}
+.add-record .add-label.data-v-2c8a80da .u-action-sheet-item {
+  -webkit-border-radius: 20rpx !important;
+          border-radius: 20rpx !important;
+}
+.add-record .upload-photo.data-v-2c8a80da {
+  margin-top: 20rpx;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  background-color: #fff;
+}
+.add-record .upload-photo .upload-left.data-v-2c8a80da {
+  -webkit-box-flex: 185rpx;
+  -webkit-flex: 185rpx;
+          flex: 185rpx;
+  padding-top: 31rpx;
+  padding-left: 25rpx;
+}
+.add-record .upload-photo .upload-left .text1.data-v-2c8a80da {
+  display: block;
+  text-align: left;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  color: #333;
+  font-size: 30rpx;
+}
+.add-record .upload-photo .upload-left .text1.data-v-2c8a80da:nth-child(2) {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 18rpx;
+}
+.add-record .upload-photo .upload-right.data-v-2c8a80da {
+  -webkit-box-flex: 565rpx;
+  -webkit-flex: 565rpx;
+          flex: 565rpx;
+}
+.add-record .upload-photo .upload-right .slot-btn.data-v-2c8a80da {
+  width: 150rpx;
+  height: 150rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  margin: 10rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  background: #f4f5f6;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+}
+.add-record .upload-photo .upload-right .slot-btn__hover.data-v-2c8a80da {
+  background-color: #ebecee;
+}
+.add-record .submit.data-v-2c8a80da {
+  width: 619rpx;
+  margin-top: 51rpx;
+  margin-left: 66rpx;
+  letter-spacing: 10rpx;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  font-size: 34rpx;
+  -webkit-border-radius: 7rpx;
+          border-radius: 7rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #bcbcbc;
+  color: #fff;
+}
+.add-record .active.data-v-2c8a80da {
+  background-color: #1aa93a;
+}
+
