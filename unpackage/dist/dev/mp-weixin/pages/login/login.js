@@ -100,6 +100,9 @@ try {
     },
     uToast: function() {
       return __webpack_require__.e(/*! import() | uview-ui/components/u-toast/u-toast */ "uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-toast/u-toast.vue */ 291))
+    },
+    uLoading: function() {
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-loading/u-loading */ "uview-ui/components/u-loading/u-loading").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loading/u-loading.vue */ 374))
     }
   }
 } catch (e) {
@@ -207,11 +210,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
   data: function data() {
     return {
+      isloading: false, //控制加载动画是否开始
       iPhoneNumber: '', //手机号
       yanzhengma: "", //验证码
       msg: '获取验证码',
@@ -278,6 +281,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
 
   methods: _objectSpread(_objectSpread({},
   (0, _vuex.mapMutations)(["setToken", "setUsertype", "setWxInfo"])), {}, {
+    //轻提示
     showToast: function showToast(title) {
       this.$refs.uToast.show({
         title: title,
@@ -286,6 +290,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         position: 'bottom' });
 
     },
+    //验证码剪切板复制
     getfocus: function getfocus() {
       var that = this;
       uni.getClipboardData({
@@ -297,12 +302,28 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         } });
 
     },
-    getUserinfo: function getUserinfo(userinfo) {
+    //调用微信的api获取用户的头像信息
+    getUserinfo: function getUserinfo() {var _this = this;
       //获取用户信息 头像 昵称
-      if (userinfo.detail.errMsg == "getUserInfo:ok") {
-        this.setWxInfo(JSON.stringify(userinfo.detail.userInfo));
-      }
+      // if(userinfo.detail.errMsg=="getUserInfo:ok"){
+      // 	this.setWxInfo(JSON.stringify(userinfo.detail.userInfo))
+      // }
+      uni.getUserProfile({
+        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: function success(res) {
+          if (res.errMsg == "getUserProfile:ok") {
+            _this.setWxInfo(JSON.stringify(res.userInfo));
+            _this.isloading = true;
+            _this.loginOperation();
+          }
+        },
+        fail: function fail(res) {
+          conso.log("取消了选择");
+        } });
+
+      // console.log("在登录的时候 获取了用户的信息",userinfo)
     },
+    //发送短信接口
     getMsgCode: function getMsgCode() {
       var that = this;
       this.myRequest({
@@ -351,9 +372,8 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         console.log("暂时不能操作");
       }
     },
-    login: function login() {
+    loginOperation: function loginOperation() {
       var that = this;
-      //测试验证码默认为1591
       this.myRequest({
         url: "/member/login/login",
         methods: "post",
@@ -363,6 +383,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
 
       then(function (res) {
         var title = "";
+        that.isloading = false;
         switch (res.data.msg) {
           case "手机号不正确":
             title = "手机号格式错误，请重新填写";
@@ -427,6 +448,10 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
             break;}
 
       });
+    },
+    login: function login() {
+      //测试验证码默认为1591
+      this.getUserinfo();
     } }),
 
   watch: {

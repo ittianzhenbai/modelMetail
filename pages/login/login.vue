@@ -43,9 +43,8 @@
 			:class="[islimit == true?'login-btn disable':'login-btn ']" 
 			type="primary" 
 			@click="login()" 
-			open-type="getUserInfo"
-			@getuserinfo='getUserinfo'
 			:disabled="islimit">提 交</button>
+		<u-loading size="48" :show="isloading" color="#1aad19"></u-loading>
 	</view>
 </template>
 
@@ -54,6 +53,7 @@
 	export default {
 		data() {
 			return {
+				isloading:false,//控制加载动画是否开始
 				iPhoneNumber:'',//手机号
 				yanzhengma:"",//验证码
 				msg:'获取验证码',
@@ -120,6 +120,7 @@
 		},
 		methods:{
 			...mapMutations(["setToken","setUsertype","setWxInfo"]),
+			//轻提示
 			showToast(title) {
 				this.$refs.uToast.show({
 					title: title,
@@ -128,6 +129,7 @@
 					position:'bottom'
 				})
 			},
+			//验证码剪切板复制
 			getfocus(){
 				let that = this
 				uni.getClipboardData({
@@ -139,12 +141,28 @@
 				    }
 				});
 			},
-			getUserinfo(userinfo){
+			//调用微信的api获取用户的头像信息
+			getUserinfo(){
 				//获取用户信息 头像 昵称
-				if(userinfo.detail.errMsg=="getUserInfo:ok"){
-					this.setWxInfo(JSON.stringify(userinfo.detail.userInfo))
-				}
+				// if(userinfo.detail.errMsg=="getUserInfo:ok"){
+				// 	this.setWxInfo(JSON.stringify(userinfo.detail.userInfo))
+				// }
+				uni.getUserProfile({
+					desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+					success: (res) => {
+					  if(res.errMsg == "getUserProfile:ok"){
+						  this.setWxInfo(JSON.stringify(res.userInfo))
+						  this.isloading = true
+						  this.loginOperation()
+					  }
+					},
+					fail:(res)=>{
+						conso.log("取消了选择")
+					}
+				})
+				// console.log("在登录的时候 获取了用户的信息",userinfo)
 			},
+			//发送短信接口
 			getMsgCode(){
 				var that = this
 				this.myRequest({
@@ -193,9 +211,8 @@
 					console.log("暂时不能操作")
 				}
 			},
-			login(){
+			loginOperation(){
 				let that = this
-				//测试验证码默认为1591
 				this.myRequest({
 					url:"/member/login/login",
 					methods:"post",
@@ -205,6 +222,7 @@
 					}
 				}).then(res=>{
 					let title = ""
+					that.isloading = false
 					switch(res.data.msg){
 						case "手机号不正确":
 							title = "手机号格式错误，请重新填写"
@@ -269,6 +287,10 @@
 							break;
 					}
 				})
+			},
+			login(){
+				//测试验证码默认为1591
+				this.getUserinfo()
 			},
 		},
 		watch:{
@@ -337,7 +359,7 @@
 					background-color #BCBCBC
 					color #FFFFFF
 	.login-btn
-		margin 50rpx auto 0
+		margin 50rpx auto
 		width 619rpx
 		height 80rpx
 		line-height 80rpx

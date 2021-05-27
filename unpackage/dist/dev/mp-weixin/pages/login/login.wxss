@@ -67,7 +67,7 @@
   color: #fff;
 }
 .login .login-btn.data-v-b237504c {
-  margin: 50rpx auto 0;
+  margin: 50rpx auto;
   width: 619rpx;
   height: 80rpx;
   line-height: 80rpx;

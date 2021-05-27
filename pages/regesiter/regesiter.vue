@@ -100,14 +100,14 @@
 			return {
 				cur_index:"1",
 				avatar:"",//用户头像
-				name: '',
-				shopname:'',
-				show:false,
+				name: '',//用户姓名
+				shopname:'',//店铺名称
+				show:false,//控制弹窗是否显示
 				address:'请选择地址',
 				address0:"",//上传的格式为（eg：浙江省杭州市滨江区）
 				address1:"",//上传的格式为（eg：33,3301,330101）
-				isChecked:false,
-				params:{
+				isChecked:false,//是否选择了 用户隐私和协议政策
+				params:{ //控制地址上传的格式
 					province: true,
 					city: true,
 					area: true
@@ -115,11 +115,12 @@
 			};
 		},
 		onShow() {
-			let info = JSON.parse(this.wxinfo)
+			let info = JSON.parse(this.wxinfo)//获取登录界面获取到的用户信息
 			this.avatar = info.avatarUrl
 		},
 		computed:{
 			...mapState(["token","usertype","wxinfo"]),
+			//判断注册按钮是否是激活状态
 			isactive:function(){
 				if(this.cur_index == "1"){
 					if(this.isChecked == true &&this.name !==''&&this.address !== "请选择地址"){
@@ -140,21 +141,26 @@
 		},
 		methods:{
 			...mapMutations(["setUsertype","setToken"]),
+			//选择注册身份是农户还是零售商
 			selOption(val){
 				this.cur_index = val
 			},
+			//选择地址弹窗看起
 			selAddress(){
 				this.show = true
 				console.log(this.show,this.icon_name)
 			},
+			//地址选择取消回调
 			cancel(e){
 				console.log("cancle",e,this.address)
 			},
+			//地址选择确认
 			confirm(e){
 				this.address = e.province.label + e.city.label+e.area.label
 				this.address0 = e.province.label + e.city.label+ e.area.label
 				this.address1 = e.province.value + ','+ e.city.value+','+e.area.value
 			},
+			//查看隐私政策 或者是隐私协议
 			watchAgreement(val){
 				if(val == "1"){
 					uni.navigateTo({
@@ -166,6 +172,7 @@
 					})
 				}	
 			},
+			//注册用户信息
 			updateInfo(cur_index){
 				let that = this
 				this.myRequest({
@@ -180,7 +187,6 @@
 						avatar:that.avatar
 					}
 				}).then(res=>{
-					console.log(res)
 					that.setUsertype(res.data.data.user_type)
 					that.setToken(res.data.data.token)
 					if(cur_index == "1"){

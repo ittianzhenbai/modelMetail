@@ -159,9 +159,11 @@
 			Popup,
 		},
 		methods:{
+			//控制修改头像底部弹窗 选择相机还是相册
 			modefiyImg(){
 				this.actionshow = true
 			},
+			//获取用户信息
 			getPerInfo(){
 				let that = this
 				this.myRequest({
@@ -197,9 +199,9 @@
 					}
 				}
 			},
+			//从不同途径选择用户信息
 			clickItem(item){
 				let that = this
-				console.log(item)
 				let sourceType = ""
 				if(item == 0){
 					sourceType = "camera"
