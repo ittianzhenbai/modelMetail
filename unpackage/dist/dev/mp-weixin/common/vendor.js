@@ -822,7 +822,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -9403,7 +9403,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9424,14 +9424,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9517,7 +9517,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"ModelRetailer","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -11438,7 +11438,7 @@ randomArray;exports.default = _default;
 
 /***/ }),
 
-/***/ 310:
+/***/ 317:
 /*!*************************************************************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/shiyuan/miniProject/ModelRetailer/uview-ui/components/u-parse/libs/MpHtmlParser.js ***!
   \*************************************************************************************************************************/
@@ -11452,9 +11452,9 @@ randomArray;exports.default = _default;
  * @author JinYufeng
  * @listens MIT
  */
-var cfg = __webpack_require__(/*! ./config.js */ 311),
+var cfg = __webpack_require__(/*! ./config.js */ 318),
 blankChar = cfg.blankChar,
-CssHandler = __webpack_require__(/*! ./CssHandler.js */ 312),
+CssHandler = __webpack_require__(/*! ./CssHandler.js */ 319),
 windowWidth = uni.getSystemInfoSync().windowWidth;
 var emoji;
 
@@ -12029,7 +12029,7 @@ module.exports = MpHtmlParser;
 
 /***/ }),
 
-/***/ 311:
+/***/ 318:
 /*!*******************************************************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/shiyuan/miniProject/ModelRetailer/uview-ui/components/u-parse/libs/config.js ***!
   \*******************************************************************************************************************/
@@ -12119,14 +12119,14 @@ module.exports = cfg;
 
 /***/ }),
 
-/***/ 312:
+/***/ 319:
 /*!***********************************************************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/shiyuan/miniProject/ModelRetailer/uview-ui/components/u-parse/libs/CssHandler.js ***!
   \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var cfg = __webpack_require__(/*! ./config.js */ 311),
+var cfg = __webpack_require__(/*! ./config.js */ 318),
 isLetter = function isLetter(c) {return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';};
 
 function CssHandler(tagStyle) {
@@ -12248,7 +12248,7 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 
 /***/ }),
 
-/***/ 320:
+/***/ 327:
 /*!*******************************************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/shiyuan/miniProject/ModelRetailer/uview-ui/libs/util/province.js ***!
   \*******************************************************************************************************/
@@ -12260,7 +12260,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 321:
+/***/ 328:
 /*!***************************************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/shiyuan/miniProject/ModelRetailer/uview-ui/libs/util/city.js ***!
   \***************************************************************************************************/
@@ -12272,7 +12272,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 322:
+/***/ 329:
 /*!***************************************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/shiyuan/miniProject/ModelRetailer/uview-ui/libs/util/area.js ***!
   \***************************************************************************************************/

@@ -28,7 +28,7 @@
 			return {
 				bar_code:'',//条码
 				// 测试条码:U20500341651652012110000100035
-				type: 'text',
+				type: 'text',//输入框的类型
 				text1:'请输入条形码下方30位条码',
 				border: true,
 				height: 100,
@@ -64,6 +64,7 @@
 					icon:false
 				})
 			},
+			//获取扫码结果
 			getTraceResult(trace_code){
 				let that = this
 				this.myRequest({

@@ -98,9 +98,10 @@
 					}, 300)
 				})
 			},
+			//扫码
 			scancode(e){
-				console.log(e.detail.type)
 				if(this.scanFunctionIsUseable == true) {
+					//加入这个限制扫码频率
 					this.scanFunctionIsUseable = false
 					// 对扫码结果进行处理
 					//安卓获取到的是qrcode ios获取到的是QR_CODE
@@ -122,7 +123,7 @@
 						var good_code = e.detail.result
 						let reg = /^(U\d{29}|\d{32}|[0-9,A-Z]{30})$/;
 						let result = reg.test(good_code)
-						console.log("条码信息为：",good_code,result)
+						// console.log("条码信息为：",good_code,result)
 						if(good_code.length >= 30 && result == true){
 							//只有扫码获取到的商品码是30位的时候才会进行请求
 							this.enterProduct(good_code)
@@ -133,13 +134,14 @@
 					}
 				}
 			},
+			//扫码错误的回调
 			cameraError(e){
 				console.log(e.detail);
 				this.showToast("该条码不是商品条码")
 			},
+			//扫码，从相册中进行扫码
 			scancodeAlbum(){
 				let that = this
-				console.log("6666")
 				uni.scanCode({
 					scanType:["qrCode","barCode"],
 					success:function(res){

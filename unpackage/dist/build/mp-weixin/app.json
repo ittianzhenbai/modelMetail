@@ -39,5 +39,6 @@
     "backgroundColor": "#EFEFF4"
   },
   "permission": {},
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

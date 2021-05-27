@@ -96,19 +96,19 @@ var components
 try {
   components = {
     uIcon: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 298))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 305))
     },
     uCalendar: function() {
       return __webpack_require__.e(/*! import() | uview-ui/components/u-calendar/u-calendar */ "uview-ui/components/u-calendar/u-calendar").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-calendar/u-calendar.vue */ 381))
     },
     uActionSheet: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-action-sheet/u-action-sheet */ "uview-ui/components/u-action-sheet/u-action-sheet").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 346))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-action-sheet/u-action-sheet */ "uview-ui/components/u-action-sheet/u-action-sheet").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 353))
     },
     uSearch: function() {
       return __webpack_require__.e(/*! import() | uview-ui/components/u-search/u-search */ "uview-ui/components/u-search/u-search").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-search/u-search.vue */ 388))
     },
     uLoadmore: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-loadmore/u-loadmore */ "uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loadmore/u-loadmore.vue */ 360))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-loadmore/u-loadmore */ "uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loadmore/u-loadmore.vue */ 367))
     }
   }
 } catch (e) {
@@ -286,7 +286,6 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _toConsumableArray(arr)
 
   },
   onLoad: function onLoad(option) {
-    console.log(option);
     this.user_id = option.user_id;
     this.getResultList(this.page, this.pagesize);
   },
@@ -309,8 +308,8 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _toConsumableArray(arr)
       this.page++;
       this.getResultList(this.page, this.pagesize);
     },
+    //根据条件搜索进退货统计的结果
     getResultList: function getResultList(page, pagesize) {
-      //根据条件搜索进退货统计的结果
       var that = this;
       this.myRequest({
         url: "member/goods/get_user_stock",
@@ -362,9 +361,11 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _toConsumableArray(arr)
 
       });
     },
+    //控制选择状态的面板是否显示
     selStatus: function selStatus() {
       this.status_show = true;
     },
+    //选择货物状态
     clickItem: function clickItem(index) {
       this.status = this.statusList[index].text;
       this.isloadshow = false; //让加载更多组件暂时消失
@@ -385,27 +386,32 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _toConsumableArray(arr)
       this.page = 1;
       this.getResultList(this.page, this.pagesize, this.keyword);
     },
+    //选择开始的时间
     startChange: function startChange(e) {
       this.isloadshow = false; //让加载更多组件暂时消失
       this.start_time = e.result;
       this.page = 1;
       this.getResultList(this.page, this.pagesize, this.keyword);
     },
+    //选择结束的时间
     endChange: function endChange(e) {
       this.isloadshow = false; //让加载更多组件暂时消失
       this.end_time = e.result;
       this.page = 1;
       this.getResultList(this.page, this.pagesize, this.keyword);
     },
+    //选择搜索条件
     search: function search(val) {
       this.isloadshow = false; //让加载更多组件暂时消失
       this.keyword = val;
       this.page = 1;
       this.getResultList(this.page, this.pagesize, this.keyword);
     },
+    //选择开始时间面板
     sel_start_time: function sel_start_time() {
       this.start_time_show = true;
     },
+    //选择结束时间面板
     sel_end_time: function sel_end_time() {
       this.end_time_show = true;
     } },

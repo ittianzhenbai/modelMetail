@@ -96,16 +96,16 @@ var components
 try {
   components = {
     uField: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-field/u-field */ "uview-ui/components/u-field/u-field").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-field/u-field.vue */ 339))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-field/u-field */ "uview-ui/components/u-field/u-field").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-field/u-field.vue */ 346))
     },
     uActionSheet: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-action-sheet/u-action-sheet */ "uview-ui/components/u-action-sheet/u-action-sheet").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 346))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-action-sheet/u-action-sheet */ "uview-ui/components/u-action-sheet/u-action-sheet").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 353))
     },
     uUpload: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-upload/u-upload */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-upload/u-upload")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-upload/u-upload.vue */ 367))
+      return Promise.all(/*! import() | uview-ui/components/u-upload/u-upload */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-upload/u-upload")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-upload/u-upload.vue */ 374))
     },
     uIcon: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 298))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 305))
     }
   }
 } catch (e) {
@@ -278,9 +278,11 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         file: this.fileList };
 
     },
+    //上传图片列表的长度
     length: function length() {
       return this.fileList.length;
     },
+    //提交按钮是否是激活状态
     isactive: function isactive() {
       if (this.effect !== '' && this.prescription !== "" && this.length >= 2) {
         return true;
@@ -293,13 +295,16 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
     this.crop_code = option.crop_code;
   },
   methods: {
+    //选择图片上传列表
     chooseUpload: function chooseUpload(lists, name) {
       //选择上传的图片列表
       this.fileList = lists;
     },
+    //移除上传的图片
     removeUpload: function removeUpload(index, lists, name) {
       this.fileList = lists;
     },
+    //继续上传用药记录
     addContinueRecord: function addContinueRecord(imageUrl) {var _this = this;
       var that = this;
       this.myRequest({
@@ -320,6 +325,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         }
       });
     },
+    //提交上传图片
     submit: function submit() {
       if (this.isactive == true) {
         this.$refs.uUpload.upload();
@@ -327,10 +333,12 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         console.log("现在按钮被禁用了");
       }
     },
+    //展示选择用药效果的面板
     showAction: function showAction() {
       this.show = true;
       this.right_icon = "arrow-down";
     },
+    //选择上次用药的效果
     clickItem: function clickItem(index) {
       this.effect = this.effectList[index].text;
     },

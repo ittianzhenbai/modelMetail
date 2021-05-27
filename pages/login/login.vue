@@ -180,6 +180,7 @@
 					
 				})
 			},
+			//获取信息
 			getMsginfo(){
 				if(this.watching == true){
 					let that = this
@@ -191,7 +192,6 @@
 								that.showToast("验证码发送失败，请稍后重试")
 							}else{
 								that.getMsgCode()
-								console.log("执行了请求...")
 								let timer = 61
 								that.times = setInterval(()=>{
 									if(timer > 0){
@@ -211,6 +211,7 @@
 					console.log("暂时不能操作")
 				}
 			},
+			//调用登录接口
 			loginOperation(){
 				let that = this
 				this.myRequest({
@@ -288,9 +289,12 @@
 					}
 				})
 			},
+			//点击登录按钮先获取用户头像 然后再进行登录
 			login(){
 				//测试验证码默认为1591
-				this.getUserinfo()
+				if(this.isloading == false){
+					this.getUserinfo()
+				}
 			},
 		},
 		watch:{

@@ -114,9 +114,11 @@
 					file:this.fileList
 				}
 			},
+			//上传图片列表的长度
 			length(){
 				return this.fileList.length
 			},
+			//提交按钮是否是激活状态
 			isactive(){
 				if(this.effect !==''&&this.prescription !== ""&&this.length >= 2){
 					return true
@@ -129,13 +131,16 @@
 			this.crop_code = option.crop_code
 		},
 		methods:{
+			//选择图片上传列表
 			chooseUpload(lists,name){
 				//选择上传的图片列表
 				this.fileList = lists
 			},
+			//移除上传的图片
 			removeUpload(index,lists,name){
 				this.fileList = lists
 			},
+			//继续上传用药记录
 			addContinueRecord(imageUrl){
 				let that = this
 				this.myRequest({
@@ -156,6 +161,7 @@
 					}
 				})
 			},
+			//提交上传图片
 			submit(){
 				if(this.isactive == true){
 					this.$refs.uUpload.upload();
@@ -163,10 +169,12 @@
 					console.log("现在按钮被禁用了")
 				}
 			},
+			//展示选择用药效果的面板
 			showAction() {
 				this.show = true;
 				this.right_icon = "arrow-down"
 			},
+			//选择上次用药的效果
 			clickItem(index) {
 				this.effect = this.effectList[index].text;
 			},

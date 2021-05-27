@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uIcon: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 298))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 305))
     },
     uToast: function() {
       return __webpack_require__.e(/*! import() | uview-ui/components/u-toast/u-toast */ "uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-toast/u-toast.vue */ 291))
@@ -256,9 +256,10 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         }, 300);
       });
     },
+    //扫码
     scancode: function scancode(e) {
-      console.log(e.detail.type);
       if (this.scanFunctionIsUseable == true) {
+        //加入这个限制扫码频率
         this.scanFunctionIsUseable = false;
         // 对扫码结果进行处理
         //安卓获取到的是qrcode ios获取到的是QR_CODE
@@ -280,7 +281,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
           var good_code = e.detail.result;
           var reg = /^(U\d{29}|\d{32}|[0-9,A-Z]{30})$/;
           var result = reg.test(good_code);
-          console.log("条码信息为：", good_code, result);
+          // console.log("条码信息为：",good_code,result)
           if (good_code.length >= 30 && result == true) {
             //只有扫码获取到的商品码是30位的时候才会进行请求
             this.enterProduct(good_code);
@@ -291,13 +292,14 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         }
       }
     },
+    //扫码错误的回调
     cameraError: function cameraError(e) {
       console.log(e.detail);
       this.showToast("该条码不是商品条码");
     },
+    //扫码，从相册中进行扫码
     scancodeAlbum: function scancodeAlbum() {
       var that = this;
-      console.log("6666");
       uni.scanCode({
         scanType: ["qrCode", "barCode"],
         success: function success(res) {

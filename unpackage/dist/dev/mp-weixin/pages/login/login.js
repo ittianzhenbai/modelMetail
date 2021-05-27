@@ -102,7 +102,7 @@ try {
       return __webpack_require__.e(/*! import() | uview-ui/components/u-toast/u-toast */ "uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-toast/u-toast.vue */ 291))
     },
     uLoading: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-loading/u-loading */ "uview-ui/components/u-loading/u-loading").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loading/u-loading.vue */ 374))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-loading/u-loading */ "uview-ui/components/u-loading/u-loading").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loading/u-loading.vue */ 298))
     }
   }
 } catch (e) {
@@ -341,6 +341,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
 
       });
     },
+    //获取信息
     getMsginfo: function getMsginfo() {
       if (this.watching == true) {
         var that = this;
@@ -352,7 +353,6 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
               that.showToast("验证码发送失败，请稍后重试");
             } else {
               that.getMsgCode();
-              console.log("执行了请求...");
               var timer = 61;
               that.times = setInterval(function () {
                 if (timer > 0) {
@@ -372,6 +372,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         console.log("暂时不能操作");
       }
     },
+    //调用登录接口
     loginOperation: function loginOperation() {
       var that = this;
       this.myRequest({
@@ -449,9 +450,12 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
 
       });
     },
+    //点击登录按钮先获取用户头像 然后再进行登录
     login: function login() {
       //测试验证码默认为1591
-      this.getUserinfo();
+      if (this.isloading == false) {
+        this.getUserinfo();
+      }
     } }),
 
   watch: {

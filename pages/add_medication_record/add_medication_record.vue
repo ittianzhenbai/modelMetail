@@ -73,30 +73,25 @@
 				cropname:'',//作物名字
 				cropdiseases:'',//作物病患
 				prescription:'',//所用药物
-				width:"150",
+				width:"150",//设置上传图片的宽度
 				size_type:['original', 'compressed'],//选择图片类型是原图还是压缩
-				height:'150',
+				height:'150',//设置上传图片的高度
 				maxcount:'5',//最多允许上传5张图片
 				fieldstyle:{
 					'fontSize':'30rpx',
 					'color':'#333333',
 					'paddingLeft':'30rpx'
-				},
+				},//设置field的style样式
 				placehold_style:"color:#999999;font-size:30rpx;font-family: Microsoft YaHei;font-weight: Regular;",
-				fileList: [],
+				fileList: [],//上传的图片列表
 				sourceType:['camera'],
 				color:"#999999",
 			};
 		},
-		onLoad() {
-		},
-		onShow() {
-			console.log(this.token)
-		},
 		computed:{
 			...mapState(["token"]),
+			//配置图片上传的地址
 			action(){
-				//配置图片上传的地址
 				return this.url + "member/upload/image_multi"
 			},
 			formData(){
@@ -107,9 +102,11 @@
 					file:this.fileList
 				}
 			},
+			//计算上传图片列表的长度
 			length(){
 				return this.fileList.length
 			},
+			//判断上传按钮是否是激活状态
 			isactive(){
 				if(this.cropname !==''&&this.cropdiseases !==""&&this.prescription !== ""&&this.length >= 2){
 					return true
@@ -119,13 +116,16 @@
 			}
 		},
 		methods:{
+			//选择上传的列表
 			chooseUpload(lists,name){
 				// console.log("选择的照片为：",lists,name)
 				this.fileList = lists
 			},
+			//移除上传列表后的回调
 			removeUpload(index,lists,name){
 				this.fileList = lists
 			},
+			//增加记录
 			addRecord(imgArray){
 				// console.log("进行交互了，此时的图片数组为：",imgArray)
 				var that = this
@@ -147,6 +147,7 @@
 					}
 				})
 			},
+			//提交记录
 			submit(){
 				if(this.isactive == true){
 					this.$refs.uUpload.upload();
@@ -154,6 +155,7 @@
 					console.log("现在按钮被禁用了")
 				}
 			},
+			//上传成功的回调
 			uploadsuccess(data, index, lists, name){
 				console.log(data, index, lists, name)
 				let files = []

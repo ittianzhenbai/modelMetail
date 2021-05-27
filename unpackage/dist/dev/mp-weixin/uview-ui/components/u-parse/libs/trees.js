@@ -197,7 +197,7 @@ __webpack_require__.r(__webpack_exports__);
 
 global.Parser = {};var trees = function trees() {Promise.resolve(/*! require.ensure */).then((function () {return resolve(__webpack_require__(/*! ./trees */ 395));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
-var errorImg = __webpack_require__(/*! ../libs/config.js */ 311).errorImg;var _default =
+var errorImg = __webpack_require__(/*! ../libs/config.js */ 318).errorImg;var _default =
 {
   components: {
     trees: trees },

@@ -229,6 +229,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
   (0, _vuex.mapState)(["token"])),
 
   methods: {
+    //页面轻提示
     showToast: function showToast(title) {
       this.$refs.uToast.show({
         title: title,
@@ -237,8 +238,8 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         icon: false });
 
     },
+    //商品入库
     enterProduct: function enterProduct(good_code) {
-      //商品入库
       var that = this;
       this.myRequest({
         url: "member/goods/stock",
@@ -253,6 +254,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         that.showToast(msg);
       });
     },
+    //商品退货
     outProduct: function outProduct(good_code) {
       var that = this;
       this.myRequest({
@@ -268,6 +270,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         that.showToast(msg);
       });
     },
+    //提交操作
     submit: function submit() {
       if (this.cur_index == 0) {
         this.enterProduct(this.bar_code);
@@ -277,6 +280,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
     } },
 
   watch: {
+    //判断按钮是否是激活状态
     bar_code: function bar_code(newVal) {
       console.log(newVal);
       if (newVal.length >= 30) {

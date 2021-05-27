@@ -119,7 +119,6 @@
 			};
 		},
 		onLoad(option) {
-			console.log(option)
 			this.user_id = option.user_id
 			this.getResultList(this.page,this.pagesize)
 		},
@@ -142,8 +141,8 @@
 				this.page ++ 
 				this.getResultList(this.page,this.pagesize)
 			},
+			//根据条件搜索进退货统计的结果
 			getResultList(page,pagesize){
-				//根据条件搜索进退货统计的结果
 				let that = this
 				this.myRequest({
 					url:"member/goods/get_user_stock",
@@ -195,9 +194,11 @@
 					}
 				})
 			},
+			//控制选择状态的面板是否显示
 			selStatus(){
 				this.status_show = true
 			},
+			//选择货物状态
 			clickItem(index) {
 				this.status = this.statusList[index].text;
 				this.isloadshow = false //让加载更多组件暂时消失
@@ -218,27 +219,32 @@
 				this.page = 1
 				this.getResultList(this.page,this.pagesize,this.keyword)
 			},
+			//选择开始的时间
 			startChange(e) {
 				this.isloadshow = false //让加载更多组件暂时消失
 				this.start_time = e.result
 				this.page = 1
 				this.getResultList(this.page,this.pagesize,this.keyword)
 			},
+			//选择结束的时间
 			endChange(e){
 				this.isloadshow = false //让加载更多组件暂时消失
 				this.end_time = e.result
 				this.page = 1
 				this.getResultList(this.page,this.pagesize,this.keyword)
 			},
+			//选择搜索条件
 			search(val){
 				this.isloadshow = false //让加载更多组件暂时消失
 				this.keyword = val
 				this.page = 1
 				this.getResultList(this.page,this.pagesize,this.keyword)
 			},
+			//选择开始时间面板
 			sel_start_time(){
 				this.start_time_show = true
 			},
+			//选择结束时间面板
 			sel_end_time(){
 				this.end_time_show = true
 			}

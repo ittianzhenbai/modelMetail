@@ -26,12 +26,12 @@
 	export default {
 		data() {
 			return {
-				support_text: '',
-				type: 'textarea',
-				border: true,
-				height: 260,
-				autoHeight: true,
-				maxlength:200,
+				support_text: '',//需要支持的文本内容
+				type: 'textarea',//文本选择框类型
+				border: true,//文本选择框的边框
+				height: 260,//文本输入框的高度
+				autoHeight: true,//开启自动高度
+				maxlength:200,//限制最多的输入字数为200
 				placeholder:"请输入您希望获得的平台支持",
 				count:0,//输入的字数
 				input_style:{
@@ -48,8 +48,8 @@
 			...mapState(["token"]),
 		},		
 		methods:{
+			//提交完之后 跳转到申请列表中
 			submit(){
-				//提交完之后 跳转到申请列表中
 				let that = this
 				this.myRequest({
 					url:"member/support/apply_support",
